@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PanicIntercept from './PanicIntercept';
-import './App.css';
 
-export default function Dashboard() {
+export default function Dashboard({ resetOnboarding }) {
     const [inIntercept, setInIntercept] = useState(false);
 
     if (inIntercept) {
@@ -10,35 +9,37 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="glass-card animate-fade-in" style={{ marginTop: '15vh', textAlign: 'center' }}>
-            <h1 className="h1" style={{ marginBottom: '16px' }}>Dashboard</h1>
-            <p className="text-secondary" style={{ marginBottom: '40px' }}>
-                No streaks. No shame. Just logical defusion.
-            </p>
+        <>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 'var(--spacing-2) 0' }}>
+                <h1 className="headline">Dashboard</h1>
+                <button onClick={resetOnboarding} style={{ background: 'none', border: 'none', cursor: 'pointer' }} title="Reset Onboarding">
+                    <span className="material-symbols-rounded" style={{ color: 'var(--md-sys-color-primary)', fontSize: '28px' }}>shield</span>
+                </button>
+            </div>
 
-            <div style={{ padding: '32px', background: 'hsla(0,0%,100%,0.02)', borderRadius: '16px', border: '1px solid hsla(0,0%,100%,0.05)' }}>
-                <h2 className="h3" style={{ marginBottom: '16px' }}>The "Little Monster" is awake?</h2>
-                <p className="text-secondary" style={{ marginBottom: '24px', fontSize: '1.1rem' }}>
-                    Remember your agreement. Engage the prefrontal cortex intercept before taking any action.
+            <div className="m3-card-elevated" style={{ backgroundColor: 'var(--md-sys-color-error-container)' }}>
+                <h2 className="title" style={{ color: 'var(--md-sys-color-on-error-container)' }}>The "Little Monster" is awake?</h2>
+                <p className="body-medium" style={{ color: 'var(--md-sys-color-on-error-container)' }}>
+                    Engage the prefrontal cortex intercept before taking any action.
                 </p>
                 <button
-                    className="btn btn-primary"
-                    style={{
-                        padding: '16px 32px',
-                        fontSize: '1.2rem',
-                        background: 'linear-gradient(135deg, hsl(350, 80%, 60%), hsl(330, 70%, 55%))',
-                        boxShadow: '0 0 20px hsla(350, 80%, 60%, 0.4)'
-                    }}
+                    className="btn btn-filled"
+                    style={{ width: '100%', marginTop: '8px', backgroundColor: 'var(--md-sys-color-error)', color: '#fff' }}
                     onClick={() => setInIntercept(true)}
                 >
+                    <span className="material-symbols-rounded">warning</span>
                     INTERCEPT CRAVING
                 </button>
             </div>
 
-            <div style={{ marginTop: '32px', display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                <button className="btn btn-glass">Review Theory</button>
-                <button className="btn btn-glass">My Insights</button>
+            <div className="m3-card">
+                <h2 className="title">Knowledge Base</h2>
+                <p className="body-medium">Review fallacies and clinical logic to stay grounded.</p>
+                <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                    <button className="btn btn-tonal" style={{ flex: 1 }}>Modules</button>
+                    <button className="btn btn-tonal" style={{ flex: 1 }}>Insights</button>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

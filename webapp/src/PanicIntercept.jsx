@@ -8,21 +8,24 @@ export default function PanicIntercept({ onComplete }) {
         {
             title: "Identify the Illusion",
             text: "What is your brain telling you right now?",
+            icon: "psychology_alt",
             options: [
-                "I just want 'one peek' to relieve the stress.",
+                "I want 'one peek' to relieve the stress.",
                 "I'm bored and deserve a reward.",
-                "I want to see something 'novel' or 'amateur'."
+                "I want to see something 'amateur'."
             ]
         },
         {
             title: "The Clinical Reality",
-            text: "Read this truth: The craving you feel is NOT because porn is enjoyable. It is because your brain is experiencing a dopamine withdrawal from the last session. The 'stress' you feel is caused by the drug itself. Viewing it will merely reset the trap.",
-            action: "Type 'I am not sacrificing anything' to engage your prefrontal cortex.",
+            text: "The craving you feel is NOT because it is enjoyable. It is because your brain is experiencing a dopamine withdrawal from the last session. Viewing it will merely reset the trap.",
+            icon: "science",
+            action: "Type 'I am not sacrificing anything'",
             validation: "I am not sacrificing anything"
         },
         {
             title: "The Deconstruction",
-            text: "The 'Novelty' trick is just your brain moving the goalposts. It will never be satisfied because there is no fundamental truth to the fantasy. The void cannot be filled by the thing that created the void.",
+            text: "The 'Novelty' trick is just your brain moving the goalposts. It will never be satisfied because there is no fundamental truth to the fantasy.",
+            icon: "done_all",
             action: "Click to acknowledge and defuse the craving."
         }
     ];
@@ -30,26 +33,21 @@ export default function PanicIntercept({ onComplete }) {
     const current = steps[step];
 
     return (
-        <div className="glass-card animate-fade-in" style={{ marginTop: '10vh' }}>
-            <div style={{
-                marginBottom: '24px',
-                padding: '16px',
-                background: 'hsla(350, 80%, 60%, 0.1)',
-                border: '1px solid hsla(350, 80%, 60%, 0.2)',
-                borderRadius: '12px',
-                textAlign: 'center'
-            }}>
-                <h2 className="h2" style={{ color: 'hsl(350, 80%, 75%)' }}>{current.title}</h2>
+        <div className="m3-card-elevated" style={{ marginTop: '10vh' }}>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span className="material-symbols-rounded" style={{ color: 'var(--md-sys-color-primary)' }}>{current.icon}</span>
+                <h2 className="title">{current.title}</h2>
             </div>
 
-            <p className="text-secondary" style={{ marginBottom: '32px', fontSize: '1.2rem', textAlign: 'center' }}>
+            <p className="body-medium">
                 {current.text}
             </p>
 
             {step === 0 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
                     {current.options.map((opt, idx) => (
-                        <button key={idx} className="btn btn-glass" style={{ justifyContent: 'flex-start', textAlign: 'left', padding: '16px' }} onClick={() => setStep(1)}>
+                        <button key={idx} className="btn btn-tonal" style={{ justifyContent: 'flex-start', textAlign: 'left', height: 'auto', padding: '12px 16px', borderRadius: 'var(--radius-md)' }} onClick={() => setStep(1)}>
                             {opt}
                         </button>
                     ))}
@@ -57,30 +55,19 @@ export default function PanicIntercept({ onComplete }) {
             )}
 
             {step === 1 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-                    <p style={{ fontWeight: 600, color: 'hsl(220, 80%, 75%)' }}>{current.action}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
+                    <p className="title" style={{ fontSize: '14px', color: 'var(--md-sys-color-primary)' }}>{current.action}</p>
                     <input
                         type="text"
                         value={typedInput}
                         onChange={(e) => setTypedInput(e.target.value)}
-                        style={{
-                            width: '100%',
-                            padding: '16px',
-                            borderRadius: '8px',
-                            border: '1px solid hsla(255,255,255,0.2)',
-                            background: 'hsla(0,0%,0%,0.3)',
-                            color: 'white',
-                            fontSize: '1.1rem',
-                            outline: 'none',
-                            fontFamily: 'inherit'
-                        }}
-                        placeholder="Type the statement here..."
+                        className="m3-input"
+                        placeholder="Type here..."
                         autoFocus
                     />
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-filled"
                         disabled={typedInput.toLowerCase() !== current.validation.toLowerCase()}
-                        style={{ opacity: typedInput.toLowerCase() !== current.validation.toLowerCase() ? 0.5 : 1, width: '100%', padding: '16px' }}
                         onClick={() => setStep(2)}
                     >
                         Verify & Continue
@@ -89,12 +76,14 @@ export default function PanicIntercept({ onComplete }) {
             )}
 
             {step === 2 && (
-                <div style={{ textAlign: 'center' }}>
-                    <button className="btn btn-glass" style={{ padding: '16px 32px' }} onClick={onComplete}>
+                <div style={{ marginTop: '8px' }}>
+                    <button className="btn btn-filled" style={{ width: '100%' }} onClick={onComplete}>
+                        <span className="material-symbols-rounded">verified</span>
                         Defuse Craving & Return
                     </button>
                 </div>
             )}
+
         </div>
     );
 }

@@ -1,75 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dashboard from './Dashboard';
 import './App.css';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('welcome'); // welcome -> brainwashing -> littlemonster -> dashboard
+  const [currentScreen, setCurrentScreen] = useState(() => {
+    return localStorage.getItem('hasCompletedOnboarding') === 'true' ? 'dashboard' : 'welcome';
+  });
+
+  const finishOnboarding = () => {
+    localStorage.setItem('hasCompletedOnboarding', 'true');
+    setCurrentScreen('dashboard');
+  };
 
   return (
-    <div className="ambient-glow">
-      <main className="container">
+    <main className="container">
 
-        {currentScreen === 'welcome' && (
-          <div className="glass-card animate-fade-in" style={{ marginTop: '20vh', textAlign: 'center' }}>
-            <h1 className="h1" style={{ marginBottom: '16px' }}>
-              Welcome. <span className="text-gradient">You aren't broken.</span>
-            </h1>
-            <p className="text-secondary" style={{ marginBottom: '32px', fontSize: '1.1rem' }}>
-              We don’t track "streaks" here. We don't use words like "relapse" or "sin." You are not an addict fighting a losing battle; you are simply a biological machine caught in a highly engineered chemical loop. This app is your laboratory to study and dismantle that loop.
-            </p>
-            <button className="btn btn-primary delay-200 animate-fade-in" onClick={() => setCurrentScreen('brainwashing')}>
-              Begin the Audit
+      {currentScreen === 'welcome' && (
+        <div className="m3-card" style={{ marginTop: '10vh' }}>
+          <h1 className="headline">You aren't broken.</h1>
+          <p className="body-medium">
+            We don’t track "streaks" here. We don't use words like "relapse". You are simply a biological machine caught in an engineered chemical loop. This app is your laboratory to study and dismantle that loop.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '8px' }}>
+            <button className="btn btn-filled" onClick={() => setCurrentScreen('brainwashing')}>
+              Begin Audit
+              <span className="material-symbols-rounded">arrow_forward</span>
             </button>
           </div>
-        )}
+        </div>
+      )}
 
-        {currentScreen === 'brainwashing' && (
-          <div className="glass-card animate-fade-in" style={{ marginTop: '15vh' }}>
-            <div style={{
-              marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'hsla(0,0%,100%,0.05)', borderRadius: '12px', padding: '16px'
-            }}>
-              <h2 className="h2 text-gradient">The "Giving Up" Illusion</h2>
-            </div>
-            <p className="text-secondary" style={{ marginBottom: '24px', fontSize: '1.1rem' }}>
-              Most people fail because they think they are "giving up" something valuable and have to fight the urge with willpower.
-              <strong> Willpower creates stress, and stress drives you to seek dopamine.</strong>
-            </p>
-            <p className="text-secondary" style={{ marginBottom: '32px', fontSize: '1.1rem' }}>
-              The truth is, you are giving up nothing. Adult content is just a boring biological trick. Once you see the trick, there is nothing to miss, and willpower becomes unnecessary.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between' }}>
-              <button className="btn btn-glass" onClick={() => setCurrentScreen('welcome')}>Back</button>
-              <button className="btn btn-primary" onClick={() => setCurrentScreen('littlemonster')}>I Understand</button>
-            </div>
+      {currentScreen === 'brainwashing' && (
+        <div className="m3-card" style={{ marginTop: '10vh' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span className="material-symbols-rounded" style={{ color: 'var(--md-sys-color-primary)' }}>psychology</span>
+            <h2 className="title">The "Giving Up" Illusion</h2>
           </div>
-        )}
-
-        {currentScreen === 'littlemonster' && (
-          <div className="glass-card animate-fade-in" style={{ marginTop: '15vh' }}>
-            <div style={{
-              marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'hsla(220,80%,60%,0.1)', border: '1px solid hsla(220,80%,60%,0.2)', borderRadius: '12px', padding: '16px'
-            }}>
-              <h2 className="h2" style={{ color: 'hsl(220,80%,75%)' }}>Meeting the "Little Monster"</h2>
-            </div>
-            <p className="text-secondary" style={{ marginBottom: '24px', fontSize: '1.1rem' }}>
-              You will still feel cravings. That is completely normal. A craving isn't a sign that you are failing; it is just the faint death throes of the chemical loop leaving your body.
-            </p>
-            <p style={{ marginBottom: '32px', fontSize: '1.1rem', padding: '16px', background: 'hsla(0,0%,0%,0.3)', borderRadius: '8px', borderLeft: '4px solid hsl(220,80%,60%)' }}>
-              <strong>The Agreement:</strong> When you feel a craving, your only job is to open this app and hit the Intercept button. Do not fight it with pure strength. We will guide your prefrontal cortex back online.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between' }}>
-              <button className="btn btn-glass" onClick={() => setCurrentScreen('brainwashing')}>Back</button>
-              <button className="btn btn-primary" onClick={() => setCurrentScreen('dashboard')}>Enter Dashboard</button>
-            </div>
+          <p className="body-medium">
+            Most people fail because they think they are "giving up" something valuable. Willpower creates stress, and stress drives you to seek dopamine.
+          </p>
+          <p className="body-medium">
+            The truth is, you are giving up nothing. Adult content is just a boring biological trick. Once you see the trick, there is nothing to miss.
+          </p>
+          <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '8px' }}>
+            <button className="btn btn-outlined" onClick={() => setCurrentScreen('welcome')}>Back</button>
+            <button className="btn btn-filled" onClick={() => setCurrentScreen('littlemonster')}>Next</button>
           </div>
-        )}
+        </div>
+      )}
 
-        {currentScreen === 'dashboard' && <Dashboard />}
+      {currentScreen === 'littlemonster' && (
+        <div className="m3-card" style={{ marginTop: '10vh' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span className="material-symbols-rounded" style={{ color: 'var(--md-sys-color-error)' }}>bug_report</span>
+            <h2 className="title">Meeting the "Little Monster"</h2>
+          </div>
+          <p className="body-medium">
+            You will still feel cravings. A craving isn't a sign that you are failing; it is just the faint death throes of the chemical loop leaving your body.
+          </p>
+          <div className="m3-card-elevated" style={{ backgroundColor: 'var(--md-sys-color-error-container)' }}>
+            <p className="body-medium" style={{ color: 'var(--md-sys-color-on-error-container)' }}>
+              <strong>The Agreement:</strong> When a craving hits, your only job is to open this app and hit the Intercept button. We will guide your prefrontal cortex back online.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '8px' }}>
+            <button className="btn btn-outlined" onClick={() => setCurrentScreen('brainwashing')}>Back</button>
+            <button className="btn btn-filled" onClick={finishOnboarding}>Enter Dashboard</button>
+          </div>
+        </div>
+      )}
 
-      </main>
-    </div>
+      {currentScreen === 'dashboard' && <Dashboard resetOnboarding={() => {
+        localStorage.removeItem('hasCompletedOnboarding');
+        setCurrentScreen('welcome');
+      }} />}
+
+    </main>
   );
 }
 
