@@ -10,7 +10,7 @@
   };
   export let active = false;
   export let stackIndex = 0;
-  export let theme = { bg: '#FFFFFF', text: '#1F1F1F' };
+
   
   const dispatch = createEventDispatcher();
   
@@ -154,7 +154,7 @@
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
     transform-style: preserve-3d;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
-    border-radius: 28px;
+    border-radius: var(--md-shape-xl);
   }
   
   .card-inner.flipped {
@@ -169,7 +169,7 @@
     backface-visibility: hidden;
     background-color: var(--card-bg, #FFFFFF);
     color: var(--card-text, #1F1F1F);
-    border-radius: 28px;
+    border-radius: var(--md-shape-xl);
     padding: 32px 24px;
     display: flex;
     flex-direction: column;
@@ -205,7 +205,7 @@
     position: absolute;
     top: 40px;
     padding: 8px 16px;
-    border-radius: 12px;
+    border-radius: var(--md-shape-xl);
     font-size: clamp(16px, 2.4vw, 24px);
     font-weight: 800;
     text-transform: uppercase;
@@ -256,7 +256,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
-    border-radius: 16px;
+    border-radius: var(--md-shape-xl);
     background: rgba(0,0,0,0.04);
     flex-shrink: 0;
   }
@@ -293,7 +293,7 @@
     margin-top: 12px;
     width: 100%;
     padding: 18px 0;
-    border-radius: 20px;
+    border-radius: var(--md-shape-xl);
     background-color: var(--card-text);
     color: var(--card-bg);
     font-weight: 700;
@@ -318,7 +318,7 @@
 
     .card-face {
       padding: 24px 18px;
-      border-radius: 24px;
+      border-radius: var(--md-shape-xl);
     }
 
     .swipe-hint {
@@ -330,7 +330,7 @@
     .next-btn {
       margin-top: 10px;
       padding: 16px 0;
-      border-radius: 16px;
+      border-radius: var(--md-shape-xl);
     }
   }
 </style>
@@ -344,8 +344,8 @@
     z-index: {zIdx}; 
     opacity: {opac};
     transition: {active && !isDragging ? 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)' : (!active ? 'all 0.4s ease' : 'none')}; 
-    --card-bg: {theme.bg}; 
-    --card-text: {theme.text};
+    --card-bg: var(--md-surface-variant); 
+    --card-text: var(--md-on-surface-variant);
     pointer-events: {active ? 'auto' : 'none'};
   "
   role="button"

@@ -1,21 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #F8F5F0;
-  --bg-card: #FFFFFF;
-  --text-primary: #1F1F1F;
-  --text-secondary: #6B6861;
-  --glow-align: #E8F5E9;
-  --glow-illusion: #FFEBEE;
+  /* Default Hue if store doesn't load immediately */
+  --theme-hue: 150;
+  
+  /* Light Theme (MD3 tonal equivalents) */
+  --bg-primary: hsl(var(--theme-hue), 20%, 98%);
+  --bg-card: hsl(var(--theme-hue), 25%, 95%);
+  --text-primary: hsl(var(--theme-hue), 10%, 10%);
+  --text-secondary: hsl(var(--theme-hue), 10%, 40%);
+  
+  /* Primary accents */
+  --md-primary: hsl(var(--theme-hue), 80%, 40%);
+  --md-primary-container: hsl(var(--theme-hue), 70%, 90%);
+  --md-on-primary-container: hsl(var(--theme-hue), 90%, 10%);
+  
+  /* Secondary/Surface variants */
+  --md-surface-variant: hsl(var(--theme-hue), 20%, 90%);
+  --md-on-surface-variant: hsl(var(--theme-hue), 15%, 30%);
+  --md-outline: hsl(var(--theme-hue), 15%, 70%);
+
+  /* Specific app semantic colors */
+  --glow-align: hsl(140, 60%, 92%); /* Green tint */
+  --glow-illusion: hsl(0, 70%, 94%); /* Red tint */
+  
+  /* MD3 Shapes */
+  --md-shape-sm: 8px;
+  --md-shape-md: 16px;
+  --md-shape-lg: 24px;
+  --md-shape-xl: 28px;
+  --md-shape-full: 9999px;
+  
+  /* Transitions */
+  --md-transition: 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #0D0F14;
-  --bg-card: #151821;
-  --text-primary: #E6EAF2;
-  --text-secondary: #8890A6;
-  --glow-align: #10241A;
-  --glow-illusion: #2A1115;
+  /* Dark Theme */
+  --bg-primary: hsl(var(--theme-hue), 10%, 6%);
+  --bg-card: hsl(var(--theme-hue), 15%, 12%);
+  --text-primary: hsl(var(--theme-hue), 20%, 95%);
+  --text-secondary: hsl(var(--theme-hue), 15%, 70%);
+
+  --md-primary: hsl(var(--theme-hue), 80%, 80%);
+  --md-primary-container: hsl(var(--theme-hue), 70%, 20%);
+  --md-on-primary-container: hsl(var(--theme-hue), 90%, 90%);
+  
+  --md-surface-variant: hsl(var(--theme-hue), 15%, 20%);
+  --md-on-surface-variant: hsl(var(--theme-hue), 20%, 80%);
+  --md-outline: hsl(var(--theme-hue), 10%, 30%);
+  
+  --glow-align: hsl(140, 50%, 15%);
+  --glow-illusion: hsl(0, 50%, 18%);
 }
 
 body {
@@ -30,7 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.5s ease-out;
+  transition: background-color var(--md-transition), color var(--md-transition);
 }
 
 * {
@@ -51,4 +87,5 @@ button {
   font-family: inherit;
   cursor: pointer;
   outline: none;
+  transition: background-color 0.2s, transform 0.2s;
 }

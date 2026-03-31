@@ -7,6 +7,8 @@
   import confetti from 'canvas-confetti';
   // @ts-ignore
   import { decks } from './lib/data/decks';
+  import { easypeasyBook } from './lib/data/easypeasy';
+  import { themeStore } from './lib/theme';
   
   let currentView: 'dashboard' | 'deck' | 'book' = 'dashboard';
   let activeDeck: any = null;
@@ -18,13 +20,10 @@
   let bgTint = 'var(--bg-primary)';
 
   // Persist progress across reloads
-  let chapterProgress: Record<number, number> = {};
-
-  let isDarkMode = false;
+  let chapterProgress: Record<string | number, number> = {};
 
   onMount(() => {
-    isDarkMode = localStorage.getItem('theme') === 'dark';
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    themeStore.init();
 
     const saved = localStorage.getItem('freedom-progress');
     if (saved) {
@@ -37,24 +36,18 @@
   function saveProgress() {
     localStorage.setItem('freedom-progress', JSON.stringify(chapterProgress));
   }
-  
-  function toggleTheme() {
-    isDarkMode = !isDarkMode;
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-  }
 
   function handleStartDeck(event: CustomEvent) {
     activeDeck = event.detail;
     deck = [...activeDeck.cards];
     currentIndex = 0;
-    bgTint = activeDeck.theme?.bg || 'var(--bg-primary)';
+    bgTint = 'var(--md-surface-variant)';
     currentView = 'deck';
   }
 
   function handleStartBook(event: CustomEvent) {
     activeBook = event.detail;
-    bgTint = '#f4f6f8'; // A nice neutral reading background
+    bgTint = 'var(--bg-primary)'; // A nice neutral reading background
     currentView = 'book';
   }
 
@@ -69,7 +62,7 @@
       saveProgress();
     }
 
-    bgTint = 'rgba(46, 204, 113, 0.15)';
+    bgTint = 'var(--glow-align)';
     confetti({
       particleCount: 50,
       spread: 70,
@@ -79,7 +72,7 @@
 
      setTimeout(() => {
       if (activeDeck) {
-        bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
+        bgTint = 'var(--bg-primary)';
       }
     }, 1500); 
   }
@@ -87,14 +80,14 @@
   function handleNextCard() {
     if (currentIndex < deck.length) {
       currentIndex++;
-      bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
+      bgTint = 'var(--bg-primary)';
     }
   }
 
   function prevCard() {
     if (currentIndex > 0) {
       currentIndex--;
-      bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
+      bgTint = 'var(--bg-primary)';
     }
   }
 
@@ -106,7 +99,20 @@
   }
 
   function handleBookComplete(e: CustomEvent) {
-    // Currently purely decorative, but could update progress
+    if (activeBook) {
+      chapterProgress[`book_` + activeBook.id] = 100;
+      chapterProgress = { ...chapterProgress };
+      saveProgress();
+
+      const currentIdx = easypeasyBook.findIndex((b: any) => b.id === activeBook.id);
+      if (currentIdx >= 0 && currentIdx < easypeasyBook.length - 1) {
+        const nextChapter = easypeasyBook[currentIdx + 1];
+        if (confirm(`Chapter Complete!\nStart next chapter: ${nextChapter.title}?`)) {
+          activeBook = nextChapter;
+          return;
+        }
+      }
+    }
     returnToDashboard();
   }
 
@@ -256,28 +262,6 @@
     transform: scale(0.9);
   }
 
-  .theme-toggle {
-    position: fixed;
-    top: clamp(10px, 2vw, 20px);
-    right: clamp(10px, 2vw, 20px);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    border: 1px solid rgba(128,128,128,0.1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    z-index: 100;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .theme-toggle:active {
-    transform: scale(0.9);
-  }
-
   @media (max-width: 680px) {
     .deck-stage {
       min-height: 480px;
@@ -289,14 +273,6 @@
     }
   }
 </style>
-
-<button class="theme-toggle" on:click={toggleTheme} aria-label="Toggle Theme">
-  {#if isDarkMode}
-    🌙
-  {:else}
-    ☀️
-  {/if}
-</button>
 
 {#if currentView === 'dashboard'}
   <Dashboard 

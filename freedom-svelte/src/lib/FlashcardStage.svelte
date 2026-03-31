@@ -164,7 +164,7 @@
     position: absolute;
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1.2);
-    border-radius: 20px;
+    border-radius: var(--md-shape-xl);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   }
 
@@ -177,7 +177,7 @@
     width: 100%;
     height: 100%;
     padding: clamp(24px, 4vw, 40px);
-    border-radius: 20px;
+    border-radius: var(--md-shape-xl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,11 +190,11 @@
 
   .card-back {
     transform: rotateY(180deg);
-    background-color: #f8f9fa;
+    background-color: var(--md-surface-variant);
   }
 
   :global([data-theme="dark"]) .card-back {
-    background-color: #1a1e23;
+    background-color: var(--md-surface-variant);
   }
 
   .card-header {

@@ -1,14 +1,23 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
   import { decks } from './data/decks';
   import { easypeasyBook } from './data/easypeasy';
+  import { themeStore } from './theme';
 
-  export let chapterProgress: Record<number, number> = {};
-  
+  export let chapterProgress: Record<string | number, number> = {};
+
   const dispatch = createEventDispatcher();
-  
+
+  let showThemeMenu = false;
   const modes = ['Decks', 'EasyPeasy Book'];
   let activeMode = 'Decks';
+
+onMount(() => {
+  const saved = localStorage.getItem('dashboard-mode');
+  if (saved) activeMode = saved;
+});
+
+$: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', activeMode); }
 
   const orderedDecks = [...decks].sort((a, b) => a.id - b.id);
   const orderedBooks = [...easypeasyBook].sort((a, b) => a.id - b.id);
@@ -61,6 +70,7 @@
     margin-top: 8px;
     gap: 14px;
     flex-shrink: 0;
+    position: relative;
   }
 
   h1 {
@@ -89,7 +99,7 @@
 
   .filter-btn {
     padding: 10px 16px;
-    border-radius: 999px;
+    border-radius: var(--md-shape-full);
     font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
@@ -99,13 +109,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid rgba(128,128,128,0.1);
+    border: none;
     flex-shrink: 0;
   }
 
   .filter-btn.active {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
   }
 
   .section-title {
@@ -127,7 +137,7 @@
   }
 
   .deck-card {
-    border-radius: 20px;
+    border-radius: var(--md-shape-xl);
     padding: clamp(14px, 1.6vw, 20px);
     display: flex;
     flex-direction: column;
@@ -135,14 +145,74 @@
     transition: transform 0.2s;
     min-height: 132px;
     cursor: pointer;
-    border: 1px solid rgba(128, 128, 128, 0.13);
+    border: none;
     gap: 8px;
+    background-color: var(--md-surface-variant);
+    color: var(--md-on-surface-variant);
   }
 
   .deck-card.book-card {
-    background-color: #f1f3f5;
-    color: #1a1a1a;
-    border: 1px solid rgba(0,0,0,0.08);
+    background-color: var(--md-surface-variant);
+    color: var(--md-on-surface-variant);
+    border: none;
+  }
+
+  .theme-popup {
+    position: absolute;
+    right: 24px;
+    top: 72px;
+    background: var(--md-surface-variant);
+    border-radius: var(--md-shape-xl);
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+    min-width: 200px;
+  }
+
+  .popup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .md-fab {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--md-shape-xl, 16px);
+    background: var(--md-primary-container, #eaddff);
+    color: var(--md-on-primary-container, #21005d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+  }
+
+  .md-switch {
+    background: var(--md-primary);
+    color: white;
+    border-radius: 999px;
+    width: 44px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .md-slider {
+    width: 100px;
+    accent-color: var(--md-primary);
   }
 
   .deck-card:active {
@@ -248,7 +318,7 @@
   .progress-fill {
     height: 100%;
     border-radius: inherit;
-    background: color-mix(in srgb, var(--text-primary) 68%, white);
+    background: var(--md-primary);
     transition: width 240ms ease;
   }
 
@@ -302,7 +372,24 @@
 <div class="dashboard">
   <div class="header">
     <h1>Final Freedom</h1>
+    <button class="md-fab" on:click={() => showThemeMenu = !showThemeMenu}>
+      🎨
+    </button>
   </div>
+  {#if showThemeMenu}
+    <div class="theme-popup">
+      <div class="popup-item">
+        <span>Dark Mode</span>
+        <button class="md-switch" on:click={themeStore.toggleDark}>
+          {#if $themeStore.isDark} 🌙 {:else} ☀️ {/if}
+        </button>
+      </div>
+      <div class="popup-item">
+        <span>Color Accent</span>
+        <input type="range" min="0" max="360" value={$themeStore.hue} on:input={(e) => themeStore.setHue(parseInt((e.target as HTMLInputElement).value))} class="md-slider" />
+      </div>
+    </div>
+  {/if}
 
   <div class="filters">
     {#each modes as mode}
@@ -326,7 +413,6 @@
         <button 
           class="deck-card"
           class:locked={locked}
-          style="background-color: {deck.theme.bg}; color: {deck.theme.text};"
           on:click={() => handleDeckSelect(deck)}
           aria-label="Chapter {deck.id}: {deck.title}"
         >
@@ -370,6 +456,7 @@
             <div class="top-left">
               <div class="chapter-badge">Chapter {chapter.chapter}</div>
             </div>
+            <div class="completion-pill">{chapterProgress['book_' + chapter.id] || 0}% complete</div>
           </div>
           
           <div class="card-content">
