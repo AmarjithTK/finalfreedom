@@ -96,7 +96,7 @@ export interface Flashcard {
 export interface BookChapter {
   id: number;
   title: string;
-  chapter: number;
+  chapter: number | string;
   cards: Flashcard[];
 }
 
