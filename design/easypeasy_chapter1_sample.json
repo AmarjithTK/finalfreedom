@@ -1,0 +1,63 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 1 - The EasyWay to Escape",
+  "description": "A deep dive into the introductory concepts of the EasyPeasy method, breaking down the paradigm shift, the failure of willpower, and the prison break mentality.",
+  "chapter": "Chapter 1: The EasyWay to Escape",
+  "cards": [
+    {
+      "id": "ep_ch1_001",
+      "front": "What is the core promise of the EasyPeasy method compared to traditional ways of quitting?",
+      "back": "The EasyPeasy method is a total paradigm shift. It completely rejects the traditional idea that quitting must be a painful, lifelong struggle. Instead, it promises that you can stop using pornography immediately, painlessly, and permanently.",
+      "key_concept": "The Paradigm Shift",
+      "tags": ["core promise", "mindset"]
+    },
+    {
+      "id": "ep_ch1_002",
+      "front": "Why do traditional willpower methods almost always fail?",
+      "back": "Willpower methods fail because they frame quitting as a massive 'sacrifice'. When you believe you are giving up something valuable, you create a powerful sense of deprivation. You spend your life feeling like you are missing out.",
+      "key_concept": "The Danger of Willpower",
+      "tags": ["willpower", "sacrifice", "failure"]
+    },
+    {
+      "id": "ep_ch1_003",
+      "front": "If quitting doesn't require willpower, what is the actual mechanism of escape?",
+      "back": "Escaping requires absolutely no willpower once the societal and personal 'brainwashing' is completely removed. When you truly see that the addiction offers absolutely zero genuine value, the desire to use it vanishes. You don't need willpower to stop doing something you don't actually want to do.",
+      "key_concept": "Destroying the Brainwashing",
+      "tags": ["brainwashing", "willpower", "mechanisms"]
+    },
+    {
+      "id": "ep_ch1_004",
+      "front": "What are the three strict prerequisites required for this method to work for you?",
+      "back": "1. You must keep a completely open mind.\n2. You must follow the instructions explicitly and in order.\n3. You must never doubt your decision once it is made.",
+      "key_concept": "The Rules of Success",
+      "tags": ["instructions", "mindset", "rules"]
+    },
+    {
+      "id": "ep_ch1_005",
+      "front": "How should you view the act of quitting to avoid feeling deprived?",
+      "back": "You must realize you are not 'giving up' anything of value. You are escaping a highly engineered trap. You must view this process as a 'prison break', not a restrictive 'diet'. A prisoner never feels deprived of their cell when they finally escape.",
+      "key_concept": "Prison Break vs. Diet",
+      "tags": ["perspective", "prison", "trap"]
+    },
+    {
+      "id": "ep_ch1_006",
+      "front": "Should you try to cut down or moderate your usage while reading this method?",
+      "back": "Absolutely not. In fact, cutting down or attempting to reduce your usage whilst reading is actually detrimental. It makes the 'drug' seem more precious and increases the sense of sacrifice. You are encouraged to consume exactly as you normally would until the final instructions.",
+      "key_concept": "No Moderation Needed",
+      "tags": ["moderation", "cutting down", "instructions"]
+    },
+    {
+      "id": "ep_ch1_007",
+      "front": "How does EasyPeasy address the shame, guilt, and embarrassment often associated with this addiction?",
+      "back": "The method is entirely clinical and neutral. It places absolutely no judgement, embarrassment, or pressure on the user. It recognizes that you fell into a trap that millions of others fell into, treating it as a biological and psychological puzzle to be solved, not a moral failing.",
+      "key_concept": "Clinical Neutrality",
+      "tags": ["shame", "guilt", "judgement"]
+    },
+    {
+      "id": "ep_ch1_008",
+      "front": "How have millions of people successfully used similar methods to escape addiction easily?",
+      "back": "They succeeded easily by simply seeing the trap for what it truly is. Once the illusion is shattered and the 'smoke and mirrors' of the addiction are exposed, the desire evaporates. The trap only works if you don't know you are in it.",
+      "key_concept": "Seeing the Trap",
+      "tags": ["illusion", "success", "the trap"]
+    }
+  ]
+}

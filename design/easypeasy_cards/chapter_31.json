@@ -1,0 +1,62 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 31",
+  "chapter": 31,
+  "cards": [
+    {
+      "id": "ep_31_01",
+      "front": "Why should you NOT try to force an active user to read this book by lecturing them on health risks?",
+      "back": "Because they already inherently know the risks better than you do. Forcing them makes them feel like a trapped animal, increasing their stress and driving them straight back to the harem.",
+      "key_concept": "Avoid Lecturing",
+      "tags": ["advice", "health-risks", "resistance"]
+    },
+    {
+      "id": "ep_31_02",
+      "front": "If you shouldn't lecture a user on health risks, how *should* you approach them to read the book?",
+      "back": "Get them into the company of ex-users and expose them to stories of how much better life is *without* the drug. Focus on the illusion of the 'dopamine rush' and the fact that it destroys confidence.",
+      "key_concept": "The Proper Approach",
+      "tags": ["advice", "positivity", "illusion"]
+    },
+    {
+      "id": "ep_31_03",
+      "front": "If you are quitting using EasyPeasy and NOT struggling, do you need to inform your partner?",
+      "back": "No, if it wasn't an issue in the past and you are enjoying the process, let it die. However, be prepared for them to wonder why you are performing and feeling so much better.",
+      "key_concept": "To Tell or Not to Tell",
+      "tags": ["partners", "communication", "easypeasy"]
+    },
+    {
+      "id": "ep_31_04",
+      "front": "What should a partner do if the ex-user is experiencing withdrawal and becomes irritable or throws a tantrum?",
+      "back": "Do not retaliate. Continue praising them. If they try a ploy to get you to give them 'permission' to relapse, say: 'If this is what it does to you, thank goodness you'll soon be free.'",
+      "key_concept": "Handling Tantrums",
+      "tags": ["partners", "tantrums", "support"]
+    },
+    {
+      "id": "ep_31_05",
+      "front": "Why is the word 'relapse' considered counterproductive by the author?",
+      "back": "It triggers catastrophic thinking ('I'll never be free', 'I'm a failure'). In reality, it is just a 'slip' where you fed the little monster. It is a failure to follow instructions, but your core conceptualization hasn't changed.",
+      "key_concept": "Slip vs Relapse",
+      "tags": ["relapse", "slip", "catastrophizing"]
+    },
+    {
+      "id": "ep_31_06",
+      "front": "What does 'musterbating' refer to in the context of recovery?",
+      "back": "It is an irrational, rigid belief system where a user thinks they 'must' or 'should' exercise, study, and be perfectly fruitful every single day, leading to extreme low frustration tolerance when they fail.",
+      "key_concept": "Musterbating",
+      "tags": ["cbt", "perfectionism", "irrational-beliefs"]
+    },
+    {
+      "id": "ep_31_07",
+      "front": "What surprising psychological phenomenon often occurs with religious users when they quit using EasyPeasy?",
+      "back": "They find quitting so easy that they feel guilty. They actively *want* it to hurt as a form of atonement/penance, and end up self-sabotaging because they think it shouldn't be easy.",
+      "key_concept": "The Penance Trap",
+      "tags": ["religion", "guilt", "atonement"]
+    },
+    {
+      "id": "ep_31_08",
+      "front": "How does the book recommend dealing with the 'bully' (the little monster) having a tantrum?",
+      "back": "Disassociate yourself from it. You are not your urge. Do not fight it, but rather observe it (mindfulness), unconditionally love yourself, and refuse to feed the bully.",
+      "key_concept": "Handling the Bully",
+      "tags": ["bully", "mindfulness", "disassociation"]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 22",
+  "chapter": 22,
+  "cards": [
+    {
+      "id": "ep_22_01",
+      "front": "What are the two distinct factors that make up withdrawal pangs?",
+      "back": "1. Dopamine withdrawal: an empty, insecure craving feeling (like hunger).\n2. Psychological triggers: external stimuli (commercials, scrolling, being alone) causing associations.",
+      "key_concept": "Two Factors of Withdrawal",
+      "tags": ["withdrawal", "dopamine", "triggers"]
+    },
+    {
+      "id": "ep_22_02",
+      "front": "How does the Willpower Method worsen the problem of psychological triggers?",
+      "back": "Because the user believes they are making a sacrifice, they sit around moping and waiting for urges to leave. This mindset actually gives power to the triggers instead of disarming them.",
+      "key_concept": "Willpower and Triggers",
+      "tags": ["willpower-method", "moping", "triggers"]
+    },
+    {
+      "id": "ep_22_03",
+      "front": "Why is it inaccurate to view an occasional relapse as taking a 'sugar pill' or placebo to calm down?",
+      "back": "A sugar pill relieves genuine psychological symptoms without causing harm. Porn, however, creates the very symptoms of stress and emptiness that it temporarily relieves, and locks you back into the cycle.",
+      "key_concept": "Porn is Not a Placebo",
+      "tags": ["placebo", "relapse", "stress"]
+    },
+    {
+      "id": "ep_22_04",
+      "front": "How should you mentally reframe a withdrawal pang when it hits?",
+      "back": "Acknowledge it instead of moping: 'I know what this is, it's the dying pang of the porn monster. This is what users suffer their entire lives. Isn't it marvelous I am purging this evil from my brain!'",
+      "key_concept": "Reframing the Pang",
+      "tags": ["reframing", "mindset", "purging"]
+    },
+    {
+      "id": "ep_22_05",
+      "front": "Why should you never try to consciously 'forget' about porn?",
+      "back": "Trying to forcefully forget it makes you obsess over it and causes depression (like trying to force yourself to fall asleep). Instead, accept the thoughts and use them to remind yourself how joyful it is to be free.",
+      "key_concept": "The Danger of Forgetting",
+      "tags": ["obsession", "acceptance", "mindset"]
+    },
+    {
+      "id": "ep_22_06",
+      "front": "What is the best way to starve the 'pornographic tapeworm' during the first three weeks?",
+      "back": "Recognize that it is trying to trick you into feeding it. Treat the withdrawal period as an exciting game—every time you laugh at a temptation, you strike a mortal blow against the tapeworm.",
+      "key_concept": "Starving the Tapeworm",
+      "tags": ["tapeworm", "game", "victory"]
+    },
+    {
+      "id": "ep_22_07",
+      "front": "What should you do if a friend sends you a pornographic link or you encounter an unexpected trigger?",
+      "back": "Convert it into a boost. Tell yourself (and them, if appropriate), 'I'm happy to say I don't need that anymore.' Recognizing that it doesn't bother you will cement your freedom.",
+      "key_concept": "Handling Unexpected Triggers",
+      "tags": ["triggers", "social", "confidence"]
+    },
+    {
+      "id": "ep_22_08",
+      "front": "What is the analogy regarding the optimist and the pessimist when looking at the 'bottle' of porn?",
+      "back": "The optimist sees a glass half-full, the pessimist sees it half-empty. But with porn, the bottle is completely empty and the user is just hallucinating that it's full.",
+      "key_concept": "The Empty Bottle",
+      "tags": ["analogy", "illusion", "truth"]
+    }
+  ]
+}

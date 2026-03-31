@@ -1,0 +1,41 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 12 - Beware of Cutting Down",
+  "chapter": "12 Beware of Cutting Down",
+  "cards": [
+    {
+      "id": "ep_ch12_001",
+      "front": "Why is 'cutting down' or going on a 'porn diet' described as a fatal stepping-stone to stopping?",
+      "back": "It traps the user in the worst of both worlds. They keep the physical addiction alive while intentionally forcing themselves to suffer constant withdrawal pangs, making them miserable and bad-tempered.",
+      "key_concept": "The Fatal Stepping-Stone",
+      "tags": ["cutting down", "porn diet", "torture"]
+    },
+    {
+      "id": "ep_ch12_002",
+      "front": "What psychological effect does waiting days for a session during a 'porn diet' have on the user?",
+      "back": "It creates the illusion that the session is incredibly precious and vital. The longer they wait and suffer the pangs, the more intense the 'relief' feels when they finally give in, massively reinforcing the brainwashing.",
+      "key_concept": "Amplification of Brainwashing",
+      "tags": ["waiting", "illusion", "value"]
+    },
+    {
+      "id": "ep_ch12_003",
+      "front": "How does cutting down affect a user's perception of their own life?",
+      "back": "They end up wishing their life away, simply killing time until their next permitted session. Life becomes just a waiting room for the drug, rather than something to be experienced.",
+      "key_concept": "Wishing Life Away",
+      "tags": ["time", "waiting", "perception"]
+    },
+    {
+      "id": "ep_ch12_004",
+      "front": "Why are users often able to abstain for days during special events (funerals, vacations) without agonizing withdrawal?",
+      "back": "Because the true difficulty of withdrawal is mental. When circumstances make the drug completely unavailable or highly inappropriate, the mental tug-of-war stops, proving that the 'agony' of withdrawal only exists when the user is debating whether or not to give in.",
+      "key_concept": "The Mental Nature of Withdrawal",
+      "tags": ["abstinence", "events", "mental agony"]
+    },
+    {
+      "id": "ep_ch12_005",
+      "front": "What fundamental delusion drives a user to attempt cutting down?",
+      "back": "The delusion that the less porn they watch, the less they will want to watch it. The exact opposite is true: the less they watch, the longer they suffer the cravings, making the drug seem infinitely more desirable.",
+      "key_concept": "The Delusion of Moderation",
+      "tags": ["moderation", "delusion", "cravings"]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 32",
+  "chapter": 32,
+  "cards": [
+    {
+      "id": "ep_32_01",
+      "front": "What is the very first instruction in the EasyPeasy Checklist?",
+      "back": "Follow all instructions. You cannot pick and choose which parts of the method to apply.",
+      "key_concept": "Instructions",
+      "tags": ["rules", "success", "compliance"]
+    },
+    {
+      "id": "ep_32_02",
+      "front": "Instead of starting the quitting process with a feeling of doom and gloom, what feeling MUST you start with?",
+      "back": "A feeling of elation. You are escaping a prison, not making a sacrifice.",
+      "key_concept": "The Emotion of Escape",
+      "tags": ["elation", "mindset", "rules"]
+    },
+    {
+      "id": "ep_32_03",
+      "front": "What should you do with advice or influences that conflict with the EasyPeasy method?",
+      "back": "Ignore all of it. Do not mix and match philosophies, especially ones reliant on willpower.",
+      "key_concept": "Rejecting Conflicting Advice",
+      "tags": ["willpower", "advice", "focus"]
+    },
+    {
+      "id": "ep_32_04",
+      "front": "Why must you resist any promise of a 'temporary fix' or a 'substitute'?",
+      "back": "Because a temporary fix implies that you are broken or missing something. There is nothing to fix because you aren't making a sacrifice in the first place.",
+      "key_concept": "No Temporary Fixes",
+      "tags": ["substitutes", "fixes", "sacrifice"]
+    },
+    {
+      "id": "ep_32_05",
+      "front": "What is the crucial instruction regarding 'waiting to quit'?",
+      "back": "Don't wait to quit, do it now! Waiting only makes the addiction worse.",
+      "key_concept": "Urgency",
+      "tags": ["timing", "action", "now"]
+    },
+    {
+      "id": "ep_32_06",
+      "front": "Once you make the decision never to watch porn again, what must you NEVER do regarding that decision?",
+      "back": "Never question it or doubt it. You know it is the correct decision.",
+      "key_concept": "Absolute Certainty",
+      "tags": ["decision", "doubt", "certainty"]
+    },
+    {
+      "id": "ep_32_07",
+      "front": "Is there such a thing as 'just one peek'?",
+      "back": "No. There is no such thing as just one peek. It is the guaranteed trigger to restart the entire devastating cycle.",
+      "key_concept": "The Illusion of One Peek",
+      "tags": ["peek", "relapse", "cycle"]
+    },
+    {
+      "id": "ep_32_08",
+      "front": "What is an example of an affirmation you should use regarding the 'slavery' of porn?",
+      "back": "'I am free from the slavery of porn.' OR 'Great, I'm free and no longer a slave!'",
+      "key_concept": "Affirming Freedom",
+      "tags": ["affirmations", "freedom", "slavery"]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 9",
+  "chapter": 9,
+  "cards": [
+    {
+      "id": "ep_09_01",
+      "front": "Why is shock treatment (e.g., terrifying warnings about PIED) ineffective for actively addicted users?",
+      "back": "Users *must* keep their head in the sand. If they consciously accept the terrifying health consequences, their illusory 'enjoyment' of the fix is destroyed, inciting panic. They block out the facts just to take their next dose.",
+      "key_concept": "The Failure of Shock Treatments",
+      "tags": ["shock-treatment", "denial", "health"]
+    },
+    {
+      "id": "ep_09_02",
+      "front": "How does the 'Stepping Under a Bus' analogy highlight the addict's cognitive dissonance?",
+      "back": "A person looks carefully left and right to avoid being hit by a bus (a one-in-a-million risk). Yet that same person happily logs into a tube site, oblivious to the absolute certainty of crippling their dopamine receptors and virility.",
+      "key_concept": "Stepping Under a Bus",
+      "tags": ["risk", "delusion", "dissonance"]
+    },
+    {
+      "id": "ep_09_03",
+      "front": "Why do younger users falsely assume that depression and peevishness are just myths of the addiction?",
+      "back": "Young bodies have a vast, natural ability to frantically produce more dopamine to counteract the drain. But as they age or face severe real-world stress, these depleted resources will crash, leading to full-blown depressive symptoms.",
+      "key_concept": "The Delayed Mental Crash",
+      "tags": ["depression", "youth", "dopamine"]
+    },
+    {
+      "id": "ep_09_04",
+      "front": "Explain the 'Rusting Car' analogy in relation to a user's physical body and brain.",
+      "back": "If you let a fancy car rust, it becomes useless, but you can always buy another one. Your body and brain are the absolute only vehicle you have for your entire life; pouring supernormal stimuli over it is willfully letting it rust.",
+      "key_concept": "The Rusting Car",
+      "tags": ["analogy", "body", "damage"]
+    },
+    {
+      "id": "ep_09_05",
+      "front": "What exact biological sequence happens in the brain every single time a user opens a porn site?",
+      "back": "The nervous system is immediately flooded with dopamine and opioids. Because this is a repeated artificial overload, the brain actively closes down (downregulates) receptors to protect itself, forcing the user to seek out more shocking content next time.",
+      "key_concept": "The Neurochemical Sequence",
+      "tags": ["neuroscience", "dopamine", "downregulation"]
+    },
+    {
+      "id": "ep_09_06",
+      "front": "How is the porn user's 'tug-of-war' actually just two different types of fear?",
+      "back": "One side is the fear of porn's consequences: ('It's unhealthy, it's ruining my life'). The opposing side is the fear of withdrawal: ('I am going to be utterly miserable if I can't have my crutch.'). Neither side involves actual pleasure.",
+      "key_concept": "The Dual Fears",
+      "tags": ["fear", "tug-of-war", "illusion"]
+    },
+    {
+      "id": "ep_09_07",
+      "front": "When addicted users argue, 'Quality of life is more important than just living,' what is the fatal flaw in their logic?",
+      "back": "They are blindly assuming the fix provides 'quality.' Does a life spent hiding in the dark, covering one's head in the sand, and suffering deep mental insecurity truly equate to a higher 'quality of life' than being a free non-user?",
+      "key_concept": "The Quality of Life Myth",
+      "tags": ["excuses", "quality", "delusion"]
+    },
+    {
+      "id": "ep_09_08",
+      "front": "What does the phrase 'Sinister Black Shadows' refer to?",
+      "back": "The perpetual, underlying guilt, insecurity, and dread that lurks quietly in the back of an active addict's mind, even when they aren't actively using. Escaping porn completely eradicates these shadows.",
+      "key_concept": "Sinister Black Shadows",
+      "tags": ["shadows", "freedom", "subconscious"]
+    }
+  ]
+}

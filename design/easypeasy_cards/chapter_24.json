@@ -1,0 +1,48 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 24",
+  "chapter": 24,
+  "cards": [
+    {
+      "id": "ep_24_01",
+      "front": "Why is quitting often unexpectedly difficult for members of the medical profession?",
+      "back": "Their deep awareness of the health risks creates intense fear (which triggers the urge to escape via dopamine). They also face extreme stress that they cannot relieve at work, and they suffer built-in guilt for 'not setting a good example.'",
+      "key_concept": "The Doctor's Burden",
+      "tags": ["profession", "stress", "fear"]
+    },
+    {
+      "id": "ep_24_02",
+      "front": "How does the 'casual user' mentality develop after a highly stressful day?",
+      "back": "The user finally escapes work and uses porn. The session incorrectly gets credit for the relief that actually came from just finally being able to relax and sleep. This creates a powerful false association.",
+      "key_concept": "False Association of Relief",
+      "tags": ["stress", "casual-user", "association"]
+    },
+    {
+      "id": "ep_24_03",
+      "front": "Why are single people or those with monotonous routines particularly vulnerable during willpower attempts?",
+      "back": "They have long periods of boredom where they sit and mope about their 'loss,' which rapidly increases feelings of depression and triggers relapse.",
+      "key_concept": "The Vulnerability of Boredom",
+      "tags": ["boredom", "moping", "vulnerability"]
+    },
+    {
+      "id": "ep_24_04",
+      "front": "What is the first primary reason for failure?",
+      "back": "The influence of external stimuli (commercials, browsing, seeing intimacy) during a weak moment, causing the user to forget that 'just one peek' doesn't exist.",
+      "key_concept": "External Triggers",
+      "tags": ["failure", "triggers", "external"]
+    },
+    {
+      "id": "ep_24_05",
+      "front": "What is the second primary reason for failure?",
+      "back": "Simply having a bad day. Under the willpower method, a bad day makes the user mope for the 'harem,' compounding the misery.",
+      "key_concept": "The Bad Day Trap",
+      "tags": ["failure", "bad-days", "moping"]
+    },
+    {
+      "id": "ep_24_06",
+      "front": "How should a non-user handle a 'bad day'?",
+      "back": "Take it on the chin. Remind yourself that bad days existed when you were an addict too. Say, 'Today isn't great, but porn won't cure it. At least I've got one marvelous bonus: I kicked that awful addiction.'",
+      "key_concept": "Handling Bad Days",
+      "tags": ["coping", "mindset", "resilience"]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 11 - The Willpower Method",
+  "chapter": "11 The Willpower Method",
+  "cards": [
+    {
+      "id": "ep_ch11_001",
+      "front": "Why is quitting pornography actually 'ridiculously easy' compared to tasks like running a 4-minute mile?",
+      "back": "Because it requires no physical training or exceptional ability. All you have to do to quit is simply *not* do something. Nobody forces you to do it, and it isn't required for survival.",
+      "key_concept": "The Simplicity of Quitting",
+      "tags": ["difficulty", "simplicity", "willpower"]
+    },
+    {
+      "id": "ep_ch11_002",
+      "front": "When building an addiction, what is the 'Confidence Trap'?",
+      "back": "When users first start viewing porn, they don't find it genuinely enjoyable (often awful or shocking). Because they aren't 'enjoying' it, they confidently believe they can stop whenever they want. This false confidence keeps them exploring until they are hooked.",
+      "key_concept": "The Confidence Trap",
+      "tags": ["confidence", "addiction origin", "illusion"]
+    },
+    {
+      "id": "ep_ch11_003",
+      "front": "Under the willpower method, why is there never a 'right time' to quit?",
+      "back": "Users wait for periods without stress to quit. But because life naturally has stressful periods (mortgages, jobs), and because the addiction *causes* its own underlying stress, a stress-free period never arrives.",
+      "key_concept": "The Myth of the Right Time",
+      "tags": ["timing", "stress", "willpower"]
+    },
+    {
+      "id": "ep_ch11_004",
+      "front": "According to the willpower method, why do users eventually cave and relapse after a few days of abstinence?",
+      "back": "The physical 'Little Monster' survives and creates a mild empty feeling. The 'Big Monster' (the brainwashing) kicks in, convincing the user they are being deprived of a necessary crutch or pleasure. This mental agony breaks their willpower.",
+      "key_concept": "The Breaking Point",
+      "tags": ["relapse", "brainwashing", "willpower failure"]
+    },
+    {
+      "id": "ep_ch11_005",
+      "front": "What does the user falsely conclude when they fail using the willpower method?",
+      "back": "They conclude that they 'lack willpower'. In reality, it has nothing to do with willpower; they simply made a rational decision (in their brainwashed state) that enduring the mental misery of deprivation isn't worth it.",
+      "key_concept": "The Willpower Fallacy",
+      "tags": ["willpower", "failure", "blame"]
+    },
+    {
+      "id": "ep_ch11_006",
+      "front": "Why is 'waiting for something to happen' a fatal flaw of the willpower method?",
+      "back": "Users wait for a magical moment where they suddenly don't crave porn anymore. But because they view quitting as a sacrifice, they continuously mope. Waiting in suspense creates anxiety, and anxiety triggers the desire to use the drug.",
+      "key_concept": "The Danger of Waiting",
+      "tags": ["waiting", "suspense", "anxiety"]
+    },
+    {
+      "id": "ep_ch11_007",
+      "front": "How do some users who 'kicked' the physical addiction accidentally hook themselves again?",
+      "back": "After weeks of abstinence, they feel they have survived and are cured. To 'prove' it to themselves, or as a special treat, they have one 'safe peek'. This instantly re-greases the neural water slides and reactivates the Little Monster.",
+      "key_concept": "The 'Just One Peek' Relapse",
+      "tags": ["relapse", "just one peek", "trap"]
+    },
+    {
+      "id": "ep_ch11_008",
+      "front": "Why do some ex-users who quit through willpower remain vulnerable for years?",
+      "back": "Because they never destroyed the brainwashing. They managed to starve the Little Monster, but the Big Monster (the belief that porn offers genuine value or relief) survives in their mind, leaving them feeling continually deprived.",
+      "key_concept": "Surviving Brainwashing",
+      "tags": ["brainwashing", "vulnerability", "long-term failure"]
+    }
+  ]
+}

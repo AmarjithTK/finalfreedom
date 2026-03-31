@@ -8,8 +8,9 @@ Every piece of information is structured as a physiological or psychological bin
 *   **The Action:** 
     *   `Swipe Right` = Agree ("Yes, this is true.")
     *   `Swipe Left` = Disagree ("No, this is false.")
-*   **Back Text (The Reality Check):** When swiped, the card flips. It states `CORRECT` or `INCORRECT`, followed by a snappy 2-4 sentence logical deconstruction that explains the neurochemical or psychological truth.
-*   **The Emotional Hook:** If they swipe wrong, they feel a slight sting of being logically "bested." This makes the subsequent lesson unforgettable.
+*   **Back Text (The Reality Check):** When swiped, the card flips. It states `ILLUSION DETECTED` (if they wrongly believed a lie) or `PERCEPTION ALIGNED` (if they correctly identified a truth). This avoids the punishing, ego-damaging sting of "INCORRECT." It is followed by a snappy 2-4 sentence logical deconstruction.
+*   **The Emotional Hook:** The app is a cognitive reset tool, not a test. Instead of making them feel "wrong," we frame it as "an active illusion was weakened." It feels like discovery and clarity.
+*   **The Mix of Cards (30/70 Ratio):** 70% of cards are "Tricks" (Illusions that need detecting). 30% are "Obvious Truths" (e.g., "Addiction thrives on repetition.") to recover the user's confidence and prevent them from developing a failure complex.
 
 ---
 
@@ -62,6 +63,8 @@ Here is how the textbook format translates into the Truth Card format.
 
 ## 4. UI/UX Specifications for Flutter Development
 *   **Widget:** Use a `TinderSwapCard` or a customized `Dismissible` widget in Flutter.
-*   **Haptic Feedback:** When swiping left/right, provide a light satisfying haptic pop. When the card flips over, provide a distinct haptic pattern based on `Correct` vs `Incorrect`. 
-*   **Progress Bar:** A smooth, filling bar at the top representing the user's progress through the daily deck (e.g., Card 12 of 20).
+*   **Haptic Feedback:** When swiping left/right, provide a light satisfying haptic pop. When the card flips over, provide a distinct haptic pattern: double pulse and slight red glow for an Illusion, and a clean single pulse with soft green glow for Alignment. 
+*   **Progressive Difficulty (Per Deck):** First 5 cards are easy and mostly true (Confidence Buildup). Middle 10 cards are slightly tricky. Last 5 cards are the hardest logical illusions.
+*   **Streak Protection (Anti-Frustration):** If the user answers 3 cards incorrectly in a row, the app dynamically loads an extremely easy "Obvious Truth" card next to reset their confidence.
+*   **Progress Bar:** A smooth, filling bar at the top representing the user's progress through the daily deck (e.g., Card 12 of 20). It should feel like momentum, not pressure.
 *   **Completion Reward:** When a deck is finished, no confetti or "alarmist" celebrations. Just a calm, elegant fade to a screen that says: *"Illusion Dismantled. You are one step closer to baseline."*

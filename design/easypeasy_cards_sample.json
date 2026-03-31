@@ -1,0 +1,38 @@
+{
+  "deckTitle": "EasyPeasy Essence - Sample Cards",
+  "description": "Strong, detailed flashcards designed to dismantle brainwashing and reinforce the EasyPeasy method.",
+  "cards": [
+    {
+      "id": "ep_001",
+      "chapter": "Chapter 1: The EasyWay to Escape",
+      "front": "Why do traditional willpower methods inevitably fail and cause mental torture?",
+      "back": "Willpower methods inherently frame quitting as a 'sacrifice', creating a false sense of deprivation. This sparks a mental 'Tug of War' (I want to watch vs. I must not watch). Escaping requires zero willpower once you destroy the brainwashing and realize you aren't giving up anything—you are breaking out of a prison.",
+      "key_concept": "Prison Break vs. Diet",
+      "tags": ["willpower", "brainwashing", "mindset"]
+    },
+    {
+      "id": "ep_002",
+      "chapter": "Chapter 2: The Two Monsters",
+      "front": "Differentiate between the 'Little Monster' and the 'Big Monster'.",
+      "back": "1. The Little Monster: The physical addiction to dopamine. It feels like a slight, empty hunger, causes absolutely NO physical pain, and starves entirely in 3 weeks.\n2. The Big Monster: The psychological addiction fueled by societal brainwashing. It's the false belief that porn gives genuine pleasure or relieves stress. The Big Monster must be killed before the final session.",
+      "key_concept": "Physical Craving vs. Psychological Brainwashing",
+      "tags": ["monsters", "dopamine", "psychology"]
+    },
+    {
+      "id": "ep_003",
+      "chapter": "Chapter 3: The Pitcher Plant Analogy",
+      "front": "How does the Pitcher Plant perfectly illustrate the porn trap?",
+      "back": "An insect flies in for the 'nectar' (novelty/rush), totally unaware it's sliding down the waxy walls. By the time it realizes it's trapped, the nectar is gone and it's being digested. Similarly, users believe they are safely exploring, blind to their plummeting dopamine baseline. Eventually, they don't watch to get 'high', but merely to feel 'normal' again.",
+      "key_concept": "The Illusion of Safety / Dropping Baseline",
+      "tags": ["analogy", "trap", "dopamine baseline"]
+    },
+    {
+      "id": "ep_004",
+      "chapter": "Chapter 5: Illusion 1 - Stress Relief",
+      "front": "Deconstruct the illusion: 'I watch porn to unwind after a hard day and relieve stress.'",
+      "back": "TRUTH: Porn created the underlying stress. The constant withdrawal pang (The Little Monster) acts as a chronic stressor. Watching a session temporarily feeds the monster, lifting the withdrawal pang. The 'relief' you feel is just the temporary return to the peaceful state that non-users experience 24/7. It's like wearing tight shoes all day just for the pleasure of taking them off.",
+      "key_concept": "The Tight Shoes Analogy",
+      "tags": ["stress", "illusions", "withdrawal"]
+    }
+  ]
+}

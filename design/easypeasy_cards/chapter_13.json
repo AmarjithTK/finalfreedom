@@ -1,0 +1,41 @@
+{
+  "deckTitle": "EasyPeasy: Chapter 13 - Just One Peek",
+  "chapter": "13 Just One Peek",
+  "cards": [
+    {
+      "id": "ep_ch13_001",
+      "front": "What does the EasyPeasy method say is the greatest myth you must remove from your mind?",
+      "back": "The myth of 'Just One Peek'. You must eradicate the belief that you can have an odd, safe, 'no big deal' session. The entire addiction survives on the concept of 'just one peek'.",
+      "key_concept": "The Myth of Just One Peek",
+      "tags": ["just one peek", "relapse", "myth"]
+    },
+    {
+      "id": "ep_ch13_002",
+      "front": "How does the text compare a 'no-big-deal' session of porn to drinking cyanide?",
+      "back": "You wouldn't dream of taking a small sip of cyanide just because you liked the taste of almonds. In the same way, you shouldn't subject yourself to the poison of a dopamine binge just because it initially seems 'enjoyable' or 'small'.",
+      "key_concept": "The Cyanide Analogy",
+      "tags": ["analogy", "cyanide", "poison", "just one peek"]
+    },
+    {
+      "id": "ep_ch13_003",
+      "front": "Why does having 'just one peek' after breaking the physical addiction guarantee a full relapse?",
+      "back": "It immediately kickstarts the chain reaction. After the peek ends, the dopamine plummets, creating a physical withdrawal pang again, while simultaneously sending you down the newly greased neural 'water slide', convincing the mind to seek more.",
+      "key_concept": "The Chain Reaction",
+      "tags": ["relapse", "chain reaction", "dopamine"]
+    },
+    {
+      "id": "ep_ch13_004",
+      "front": "What should you see in your mind's eye instead of the 'special occasion' session when you are tempted?",
+      "back": "You must visualize a filthy lifetime of spending eons locked behind a screen, destroying yourself mentally and physically. Recognize it as an invitation back to a lifetime of slavery and hopelessness, not a small treat.",
+      "key_concept": "Visualizing the Reality",
+      "tags": ["visualization", "slavery", "temptation"]
+    },
+    {
+      "id": "ep_ch13_005",
+      "front": "Is there such a thing as an 'addictive personality' regarding pornography?",
+      "back": "No. Nobody is born needing to masturbate to video clips. It is the drug (the supernormal visual stimulus) that hooks you, not an inherent flaw in your character or personality.",
+      "key_concept": "The Addictive Personality Myth",
+      "tags": ["addictive personality", "genetics", "the trap"]
+    }
+  ]
+}
