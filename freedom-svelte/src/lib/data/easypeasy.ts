@@ -17,7 +17,7 @@ export interface BookChapter {
 export const easypeasyBook: BookChapter[] = [
   {
     "id": 1,
-    "title": "EasyPeasy: Chapter 1 - Introduction",
+    "title": "The Core Philosophy",
     "chapter": "1 Introduction",
     "cards": [
       {
@@ -133,7 +133,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 2,
-    "title": "EasyPeasy: Chapter 2 - The Easy Method",
+    "title": "Understanding the Brain",
     "chapter": "2 The Easy Method",
     "cards": [
       {
@@ -250,7 +250,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 3,
-    "title": "EasyPeasy: Chapter 3 - Why is it difficult to stop?",
+    "title": "The Illusion of Needs",
     "chapter": "3 Why is it difficult to stop?",
     "cards": [
       {
@@ -367,7 +367,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 4,
-    "title": "EasyPeasy: Chapter 4 - Nature & The Little Monster",
+    "title": "Reframing Failure",
     "chapter": "4 Nature",
     "cards": [
       {
@@ -506,7 +506,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 5,
-    "title": "EasyPeasy: Chapter 5 - Brainwashing",
+    "title": "Daily Routines",
     "chapter": "5 Brainwashing",
     "cards": [
       {
@@ -601,7 +601,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 6,
-    "title": "EasyPeasy: Chapter 6 - Brainwashing Aspects",
+    "title": "Building Momentum",
     "chapter": "6 Brainwashing Aspects",
     "cards": [
       {
@@ -696,7 +696,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 7,
-    "title": "EasyPeasy: Chapter 7 - What am I giving up?",
+    "title": "Navigating Triggers",
     "chapter": "7 What am I giving up?",
     "cards": [
       {
@@ -959,7 +959,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 10,
-    "title": "EasyPeasy: Chapter 11 - The Willpower Method",
+    "title": "Breaking the Cycle",
     "chapter": "11 The Willpower Method",
     "cards": [
       {
@@ -1054,7 +1054,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 11,
-    "title": "EasyPeasy: Chapter 12 - Beware of Cutting Down",
+    "title": "The Fear Trap",
     "chapter": "12 Beware of Cutting Down",
     "cards": [
       {
@@ -1116,7 +1116,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 12,
-    "title": "EasyPeasy: Chapter 13 - Just One Peek",
+    "title": "Urge Surfing",
     "chapter": "13 Just One Peek",
     "cards": [
       {
@@ -1179,7 +1179,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 13,
-    "title": "EasyPeasy: Chapter 14 - Casual Users",
+    "title": "Emotional Agility",
     "chapter": "14 Casual Users",
     "cards": [
       {
@@ -1274,7 +1274,7 @@ export const easypeasyBook: BookChapter[] = [
   },
   {
     "id": 14,
-    "title": "EasyPeasy: Chapter 15 - The YouTube / Twitch / Instagram User",
+    "title": "Long-term Maintenance",
     "chapter": "15 The YouTube / Twitch / Instagram User",
     "cards": [
       {

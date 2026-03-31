@@ -66,7 +66,9 @@ for (const file of files) {
 
   let cards = data.cards || (Array.isArray(data) ? data : []);
   let chapterNum = data.chapter || bookId;
-  let title = chapterMap[chapterNum] || data.deckTitle || `Chapter ${chapterNum}`;
+  let parsedChap = typeof chapterNum === 'string' ? parseInt(chapterNum.match(/\d+/)?.[0] || bookId, 10) : chapterNum;
+  let title = chapterMap[parsedChap] || data.deckTitle || `Chapter ${chapterNum}`;
+  title = title.replace(/^EasyPeasy:\s*Chapter\s*\d+\s*-\s*/i, '').replace(/^EasyPeasy:\s*/i, '');
 
   allChapters.push({
     id: bookId,
