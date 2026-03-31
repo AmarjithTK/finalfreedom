@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 :root {
+  --bg-primary: #F8F5F0;
+  --bg-card: #FFFFFF;
+  --text-primary: #1F1F1F;
+  --text-secondary: #6B6861;
+  --glow-align: #E8F5E9;
+  --glow-illusion: #FFEBEE;
+}
+
+[data-theme="dark"] {
   --bg-primary: #0D0F14;
   --bg-card: #151821;
   --text-primary: #E6EAF2;
   --text-secondary: #8890A6;
   --glow-align: #10241A;
   --glow-illusion: #2A1115;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-primary: #F8F5F0;
-    --bg-card: #FFFFFF;
-    --text-primary: #1F1F1F;
-    --text-secondary: #6B6861;
-    --glow-align: #E8F5E9;
-    --glow-illusion: #FFEBEE;
-  }
 }
 
 body {

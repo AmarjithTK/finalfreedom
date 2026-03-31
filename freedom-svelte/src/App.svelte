@@ -20,7 +20,12 @@
   // Persist progress across reloads
   let chapterProgress: Record<number, number> = {};
 
+  let isDarkMode = false;
+
   onMount(() => {
+    isDarkMode = localStorage.getItem('theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+
     const saved = localStorage.getItem('freedom-progress');
     if (saved) {
       try {
@@ -33,6 +38,12 @@
     localStorage.setItem('freedom-progress', JSON.stringify(chapterProgress));
   }
   
+  function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }
+
   function handleStartDeck(event: CustomEvent) {
     activeDeck = event.detail;
     deck = [...activeDeck.cards];
@@ -245,6 +256,28 @@
     transform: scale(0.9);
   }
 
+  .theme-toggle {
+    position: fixed;
+    top: clamp(10px, 2vw, 20px);
+    right: clamp(10px, 2vw, 20px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 1px solid rgba(128,128,128,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .theme-toggle:active {
+    transform: scale(0.9);
+  }
+
   @media (max-width: 680px) {
     .deck-stage {
       min-height: 480px;
@@ -256,6 +289,14 @@
     }
   }
 </style>
+
+<button class="theme-toggle" on:click={toggleTheme} aria-label="Toggle Theme">
+  {#if isDarkMode}
+    🌙
+  {:else}
+    ☀️
+  {/if}
+</button>
 
 {#if currentView === 'dashboard'}
   <Dashboard 
