@@ -1,108 +1,125 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import Dashboard from './lib/Dashboard.svelte';
+  import TruthCard from './lib/TruthCard.svelte';
+  import FlashcardStage from './lib/FlashcardStage.svelte';
   import { fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
-  import TruthCard from './lib/TruthCard.svelte';
-  import Dashboard from './lib/Dashboard.svelte';
+  // @ts-ignore
+  import { decks } from './lib/data/decks';
   
-  let currentView: 'dashboard' | 'deck' = 'dashboard';
+  let currentView: 'dashboard' | 'deck' | 'book' = 'dashboard';
   let activeDeck: any = null;
-  let activeDeckTitle = '';
-  let chapterProgress: Record<number, number> = {};
+  let activeBook: any = null;
   
   let deck: any[] = [];
-
   let currentIndex = 0;
-  $: progressPercent = deck.length ? (currentIndex / deck.length) * 100 : 0;
   
   let bgTint = 'var(--bg-primary)';
 
+  // Persist progress across reloads
+  let chapterProgress: Record<number, number> = {};
+
   onMount(() => {
-    try {
-      const saved = localStorage.getItem('chapterProgress');
-      if (saved) {
+    const saved = localStorage.getItem('freedom-progress');
+    if (saved) {
+      try {
         chapterProgress = JSON.parse(saved);
-      }
-    } catch {
-      chapterProgress = {};
+      } catch (e) {}
     }
   });
 
-  $: {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('chapterProgress', JSON.stringify(chapterProgress));
+  function saveProgress() {
+    localStorage.setItem('freedom-progress', JSON.stringify(chapterProgress));
+  }
+  
+  function handleStartDeck(event: CustomEvent) {
+    activeDeck = event.detail;
+    deck = [...activeDeck.cards];
+    currentIndex = 0;
+    bgTint = activeDeck.theme?.bg || 'var(--bg-primary)';
+    currentView = 'deck';
+  }
+
+  function handleStartBook(event: CustomEvent) {
+    activeBook = event.detail;
+    bgTint = '#f4f6f8'; // A nice neutral reading background
+    currentView = 'book';
+  }
+
+  function handleCommit(event: CustomEvent) {
+    const { x, y } = event.detail;
+    
+    // We update progress to LocalStorage immediately
+    if (activeDeck) {
+      let percent = Math.min(100, Math.round(((currentIndex + 1) / deck.length) * 100));
+      chapterProgress[activeDeck.id] = Math.max(chapterProgress[activeDeck.id] || 0, percent);
+      chapterProgress = { ...chapterProgress };
+      saveProgress();
+    }
+
+    bgTint = 'rgba(46, 204, 113, 0.15)';
+    confetti({
+      particleCount: 50,
+      spread: 70,
+      origin: { x: Math.min(1, Math.max(0, x / window.innerWidth)), y: Math.min(1, Math.max(0, y / window.innerHeight)) },
+      colors: ['#2ECC71', '#27AE60', '#F1C40F']
+    });
+
+     setTimeout(() => {
+      if (activeDeck) {
+        bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
+      }
+    }, 1500); 
+  }
+
+  function handleNextCard() {
+    if (currentIndex < deck.length) {
+      currentIndex++;
+      bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
     }
   }
 
-  function handleStartDeck(e: CustomEvent<any>) {
-    const selectedDeck = e.detail;
-    activeDeck = selectedDeck;
-    deck = selectedDeck.cards;
-    activeDeckTitle = selectedDeck.title;
-    currentIndex = 0;
-    currentView = 'deck';
-    bgTint = 'var(--bg-primary)';
+  function prevCard() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      bgTint = activeDeck?.theme?.bg || 'var(--bg-primary)';
+    }
   }
 
   function returnToDashboard() {
     currentView = 'dashboard';
-    bgTint = 'var(--bg-primary)';
-  }
-  
-  function handleCommit(e: CustomEvent<{ swipedRight: boolean; isCorrect: boolean; card: any }>) {
-    const { isCorrect } = e.detail;
-    if (isCorrect) {
-      bgTint = 'var(--glow-align)'; // #10241A
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.8 },
-        colors: ['#4CAF50', '#81C784', '#A5D6A7']
-      });
-    } else {
-      bgTint = 'var(--glow-illusion)'; // #2A1115
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.8 },
-        colors: ['#F44336', '#E57373', '#FFCDD2'],
-        shapes: ['circle']
-      });
-    }
-  }
-  
-  function handleNextCard() {
-    const nextIndex = currentIndex + 1;
-    if (activeDeck?.id && deck.length) {
-      chapterProgress = {
-        ...chapterProgress,
-        [activeDeck.id]: Math.min(100, Math.round((nextIndex / deck.length) * 100))
-      };
-    }
-    currentIndex = nextIndex;
+    activeDeck = null;
+    activeBook = null;
     bgTint = 'var(--bg-primary)';
   }
 
-  function handleInteractionStart() {
-    // "A decision is armed"
+  function handleBookComplete(e: CustomEvent) {
+    // Currently purely decorative, but could update progress
+    returnToDashboard();
   }
 
-  function handleInteractionCancel() {
-    // Reset background if needed
-    bgTint = 'var(--bg-primary)';
-  }
+  $: progressPercent = activeDeck && deck.length > 0 
+    ? Math.round((Math.min(currentIndex, deck.length) / deck.length) * 100)
+    : 0;
 
-  $: {
-    if (typeof document !== 'undefined') {
-      document.body.style.backgroundColor = bgTint;
-    }
-  }
+  $: document.body.style.backgroundColor = bgTint;
 </script>
 
 <style>
   main {
-    width: min(1080px, 100vw);
+    width: 100%;
     height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .deck-area {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     padding: clamp(12px, 2vw, 24px);
     display: flex;
@@ -113,6 +130,14 @@
     gap: 10px;
   }
 
+  .deck-stage {
+    position: relative;
+    width: clamp(300px, 85vw, 440px);
+    height: clamp(480px, 68vh, 600px);
+    margin: auto;
+  }
+
+  /* Shared header for deck & book modes */
   header {
     width: 100%;
     padding: clamp(10px, 2vw, 18px);
@@ -152,7 +177,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* max-width is handled by header-left */
   }
 
   .progress-container {
@@ -171,68 +195,33 @@
     transition: width 0.3s ease;
   }
 
-  .deck-area {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .deck-stage {
-    width: 100%;
-    max-width: 460px;
-    height: 100%;
-    min-height: 560px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
   .deck-complete {
-    text-align: center;
-    color: var(--text-primary);
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-  }
-
-  .deck-complete h2 {
-    font-size: 26px;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: 0.5px;
-  }
-
-  .deck-complete p {
-    color: var(--text-secondary);
-    font-size: 16px;
-    margin: 0;
+    justify-content: center;
+    text-align: center;
   }
 
   .reset-btn {
-    padding: 16px 32px;
-    border-radius: 30px;
+    margin-top: 24px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
     background-color: var(--text-primary);
     color: var(--bg-primary);
     font-weight: 600;
-    font-size: 14px;
-    transition: transform 0.2s, opacity 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
   }
 
   .reset-btn:active {
     transform: scale(0.95);
-    opacity: 0.8;
   }
-  
-  /* Use global for body bg to keep it clean */
+
   :global(body) {
     transition: background-color 0.4s ease-out !important;
   }
@@ -269,17 +258,26 @@
 </style>
 
 {#if currentView === 'dashboard'}
-  <Dashboard {chapterProgress} on:selectDeck={handleStartDeck} />
-{:else}
+  <Dashboard 
+    {chapterProgress} 
+    on:selectDeck={handleStartDeck} 
+    on:selectBook={handleStartBook} 
+  />
+{:else if currentView === 'deck'}
   <main in:fade={{duration: 300}}>
     <header>
       <div class="header-top">
         <div class="header-left">
           <button class="back-btn" on:click={returnToDashboard} aria-label="Back">&larr;</button>
-          <div class="header-title">{activeDeckTitle || 'Mind Gym'}</div>
+          <div class="header-title">{activeDeck?.title || 'Mind Gym'}</div>
         </div>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: {progressPercent}%"></div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="back-btn" style="width: 28px; height: 28px; font-size: 14px; opacity: {currentIndex === 0 ? 0.3 : 1};" on:click={prevCard} disabled={currentIndex === 0}>&lt;</button>
+          <div class="progress-container" style="width: clamp(60px, 15vw, 120px);">
+            <div class="progress-bar" style="width: {progressPercent}%"></div>
+          </div>
+          <span style="font-size: 12px; font-weight: 500; color: var(--text-secondary); min-width: 40px; text-align: center;">{Math.min(deck.length > 0 ? currentIndex + 1 : 0, deck.length)}/{deck.length}</span>
+          <button class="back-btn" style="width: 28px; height: 28px; font-size: 14px; opacity: {currentIndex >= deck.length ? 0.3 : 1};" on:click={handleNextCard} disabled={currentIndex >= deck.length}>&gt;</button>
         </div>
       </div>
     </header>
@@ -294,7 +292,6 @@
             <button class="reset-btn" style="margin-top: 12px; background-color: var(--bg-card); color: var(--text-primary); border: 1px solid rgba(128,128,128,0.2);" on:click={returnToDashboard}>Back to Dashboard</button>
           </div>
         {:else}
-          <!-- Render up to 3 cards for the stack effect -->
           {#each deck as card, i (card.id)}
             {#if i >= currentIndex && i < currentIndex + 3}
               <div transition:fade={{duration: 200}} style="position: absolute; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; pointer-events: none;">
@@ -305,8 +302,6 @@
                   theme={activeDeck?.theme}
                   on:commit={handleCommit}
                   on:nextCard={handleNextCard}
-                  on:interactionStart={handleInteractionStart}
-                  on:interactionCancel={handleInteractionCancel}
                 />
               </div>
             {/if}
@@ -314,5 +309,24 @@
         {/if}
       </div>
     </div>
-</main>
+  </main>
+{:else if currentView === 'book'}
+  <main in:fade={{duration: 300}}>
+    <header>
+      <div class="header-top">
+        <div class="header-left">
+          <button class="back-btn" on:click={returnToDashboard} aria-label="Back">&larr;</button>
+          <div class="header-title">{activeBook?.title || 'Book Reading'}</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="deck-area" style="max-width: 100%;">
+      <FlashcardStage 
+        chapter={activeBook} 
+        on:back={returnToDashboard} 
+        on:complete={handleBookComplete} 
+      />
+    </div>
+  </main>
 {/if}

@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd freedom-svelte && npm install && npm run build",
+  "outputDirectory": "freedom-svelte/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
