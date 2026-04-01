@@ -443,6 +443,7 @@
       {/each}
     {:else if activeMode === 'EasyPeasy Book'}
       {#each orderedBooks as chapter (chapter.id)}
+        {@const completion = chapterProgress['book_' + chapter.id] || 0}
         <button 
           class="deck-card book-card"
           on:click={() => handleBookSelect(chapter)}
@@ -452,7 +453,7 @@
             <div class="top-left">
               <div class="chapter-badge">Chapter {chapter.chapter}</div>
             </div>
-            <div class="completion-pill">{chapterProgress['book_' + chapter.id] || 0}% complete</div>
+            <div class="completion-pill">{completion}% complete</div>
           </div>
           
           <div class="card-content">
@@ -462,6 +463,12 @@
           <div class="meta-row">
             <div class="card-footer">
               {chapter.cards?.length || 0} cards
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-track">
+                <div class="progress-fill" style="width: {completion}%"></div>
+              </div>
+              <div class="progress-label">Reading Progress</div>
             </div>
           </div>
         </button>

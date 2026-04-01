@@ -11,7 +11,10 @@
   let isFlipped = false;
 
   $: currentCard = cards[currentIndex];
-  $: progressPercent = Math.round(((currentIndex) / cards.length) * 100);
+  $: totalCards = cards?.length ?? 0;
+  $: progressPercent = totalCards > 0
+    ? Math.round((Math.min(currentIndex, totalCards) / totalCards) * 100)
+    : 0;
 
   function handleNext() {
     if (currentIndex < cards.length - 1) {
@@ -92,6 +95,37 @@
     padding: 0 clamp(8px, 2vw, 20px);
     pointer-events: none;
     z-index: 10;
+  }
+
+  .stage-progress {
+    width: min(760px, 92vw);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .stage-progress-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(128, 128, 128, 0.2);
+    overflow: hidden;
+  }
+
+  .stage-progress-fill {
+    height: 100%;
+    background: var(--md-primary);
+    border-radius: inherit;
+    transition: width 0.35s ease;
+  }
+
+  .stage-progress-label {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 700;
   }
 
   .nav-btn {
@@ -307,6 +341,13 @@
       <button on:click={completeChapter}>Return to Books</button>
     </div>
   {:else}
+    <div class="stage-progress">
+      <div class="stage-progress-track">
+        <div class="stage-progress-fill" style="width: {progressPercent}%"></div>
+      </div>
+      <div class="stage-progress-label">Progress {Math.min(currentIndex + 1, totalCards)} / {totalCards}</div>
+    </div>
+
     <div class="nav-controls">
       <button 
         class="nav-btn" 
