@@ -184,11 +184,11 @@
   }
 
   .illusion-text {
-    font-size: clamp(20px, 2.8vw, 26px);
+    font-size: clamp(22px, 3.2vw, 30px);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.35;
     text-align: center;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
     z-index: 2;
     padding-bottom: 24px;
   }
@@ -282,9 +282,10 @@
 
   .reality-text {
     text-align: center;
-    font-size: clamp(15px, 2.1vw, 18px);
+    font-size: clamp(16px, 2.2vw, 20px);
     font-weight: 500;
     line-height: 1.5;
+    letter-spacing: -0.3px;
     color: var(--card-text);
     text-wrap: pretty;
   }

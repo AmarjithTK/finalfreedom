@@ -7,6 +7,7 @@
 
   let cards = chapter.cards;
   let currentIndex = 0;
+  export let progressPercent = 0;
   let isFlipped = false;
 
   $: currentCard = cards[currentIndex];
@@ -258,25 +259,44 @@
 
   .content-text {
     font-size: clamp(20px, 3.2vw, 32px);
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.3px;
     text-wrap: balance;
   }
   
   .hint {
     margin-top: auto;
-    font-size: 13px;
+    font-size: 11px;
     color: var(--text-secondary);
-    outline: 1px solid rgba(128,128,128,0.2);
-    background: rgba(128,128,128,0.05);
-    padding: 8px 16px;
+    outline: 1px solid rgba(128, 128, 128, 0.1);
+    background: rgba(128, 128, 128, 0.05);
+    padding: 10px 20px;
     border-radius: 999px;
     opacity: 0.8;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-weight: 700;
     flex-shrink: 0;
+  }
+
+  @media (max-width: 680px) {
+    .nav-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+      opacity: 0.5;
+    }
+
+    .nav-controls {
+      padding: 0 4px;
+    }
+
+    .card-container {
+      margin-top: 4vh; /* Push card higher to prevent look-down on mobile */
+      height: clamp(380px, 68vh, 550px);
+    }
   }
 </style>
 

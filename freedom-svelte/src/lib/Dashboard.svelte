@@ -2,6 +2,7 @@
   import { createEventDispatcher, onMount } from 'svelte';
   import { decks } from './data/decks';
   import { easypeasyBook } from './data/easypeasy';
+  import { quotes } from './data/quotes';
   import { themeStore } from './theme';
 
   export let chapterProgress: Record<string | number, number> = {};
@@ -9,15 +10,10 @@
   const dispatch = createEventDispatcher();
 
   let showThemeMenu = false;
-  const modes = ['Decks', 'EasyPeasy Book'];
-  let activeMode = 'Decks';
+  const modes = ['Decks', 'EasyPeasy Book', 'Quotes'];
+  let activeMode = (typeof window !== 'undefined' && localStorage.getItem('dashboard-mode')) || 'Decks';
 
-onMount(() => {
-  const saved = localStorage.getItem('dashboard-mode');
-  if (saved) activeMode = saved;
-});
-
-$: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', activeMode); }
+  $: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', activeMode); }
 
   const orderedDecks = [...decks].sort((a, b) => a.id - b.id);
   const orderedBooks = [...easypeasyBook].sort((a, b) => a.id - b.id);
@@ -445,7 +441,7 @@ $: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', a
           </div>
         </button>
       {/each}
-    {:else}
+    {:else if activeMode === 'EasyPeasy Book'}
       {#each orderedBooks as chapter (chapter.id)}
         <button 
           class="deck-card book-card"
@@ -465,10 +461,25 @@ $: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', a
 
           <div class="meta-row">
             <div class="card-footer">
-              {chapter.cards.length} cards
+              {chapter.cards?.length || 0} cards
             </div>
           </div>
         </button>
+      {/each}
+    {:else if activeMode === 'Quotes'}
+      {#each quotes as quote (quote.id)}
+        <div class="deck-card quote-card" style="cursor: default; padding: 24px;">
+          <div class="card-content">
+            <h3 style="font-size: clamp(18px, 2vw, 24px); font-weight: 500; font-style: italic; line-height: 1.4; opacity: 0.9;">
+              "{quote.text}"
+            </h3>
+          </div>
+          <div class="meta-row" style="margin-top: 16px;">
+            <div class="card-footer" style="font-size: 14px; font-weight: 600; opacity: 0.7;">
+              — {quote.author}
+            </div>
+          </div>
+        </div>
       {/each}
     {/if}
   </div>

@@ -13,6 +13,7 @@
   let currentView: 'dashboard' | 'deck' | 'book' = 'dashboard';
   let activeDeck: any = null;
   let activeBook: any = null;
+  let bookProgressPercent = 0;
   
   let deck: any[] = [];
   let currentIndex = 0;
@@ -47,6 +48,7 @@
 
   function handleStartBook(event: CustomEvent) {
     activeBook = event.detail;
+    bookProgressPercent = 0;
     bgTint = 'var(--bg-primary)'; // A nice neutral reading background
     currentView = 'book';
   }
@@ -197,19 +199,21 @@
   }
 
   .progress-container {
-    width: clamp(120px, 24vw, 180px);
-    height: 6px;
-    background-color: var(--text-secondary);
-    opacity: 0.2;
-    border-radius: 3px;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(128, 128, 128, 0.15);
+    border-radius: 0;
     overflow: hidden;
-    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
   }
 
   .progress-bar {
     height: 100%;
-    background-color: var(--text-primary);
-    transition: width 0.3s ease;
+    background-color: var(--md-primary);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .deck-complete {
@@ -282,6 +286,9 @@
   />
 {:else if currentView === 'deck'}
   <main in:fade={{duration: 300}}>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: {progressPercent}%"></div>
+    </div>
     <header>
       <div class="header-top">
         <div class="header-left">
@@ -290,9 +297,6 @@
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
           <button class="back-btn" style="width: 28px; height: 28px; font-size: 14px; opacity: {currentIndex === 0 ? 0.3 : 1};" on:click={prevCard} disabled={currentIndex === 0}>&lt;</button>
-          <div class="progress-container" style="width: clamp(60px, 15vw, 120px);">
-            <div class="progress-bar" style="width: {progressPercent}%"></div>
-          </div>
           <span style="font-size: 12px; font-weight: 500; color: var(--text-secondary); min-width: 40px; text-align: center;">{Math.min(deck.length > 0 ? currentIndex + 1 : 0, deck.length)}/{deck.length}</span>
           <button class="back-btn" style="width: 28px; height: 28px; font-size: 14px; opacity: {currentIndex >= deck.length ? 0.3 : 1};" on:click={handleNextCard} disabled={currentIndex >= deck.length}>&gt;</button>
         </div>
@@ -329,6 +333,9 @@
   </main>
 {:else if currentView === 'book'}
   <main in:fade={{duration: 300}}>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: {bookProgressPercent}%"></div>
+    </div>
     <header>
       <div class="header-top">
         <div class="header-left">
@@ -341,6 +348,7 @@
     <div class="deck-area" style="max-width: 100%;">
       <FlashcardStage 
         chapter={activeBook} 
+        bind:progressPercent={bookProgressPercent}
         on:back={returnToDashboard} 
         on:complete={handleBookComplete} 
       />
