@@ -3,6 +3,7 @@
   import Dashboard from './lib/Dashboard.svelte';
   import TruthCard from './lib/TruthCard.svelte';
   import FlashcardStage from './lib/FlashcardStage.svelte';
+  import Library from './lib/Library.svelte';
   import { fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
   // @ts-ignore
@@ -10,7 +11,7 @@
   import { easypeasyBook } from './lib/data/easypeasy';
   import { themeStore } from './lib/theme';
   
-  let currentView: 'dashboard' | 'deck' | 'book' = 'dashboard';
+  let currentView: 'dashboard' | 'deck' | 'book' | 'library' = 'dashboard';
   let activeDeck: any = null;
   let activeBook: any = null;
   let bookProgressPercent = 0;
@@ -97,6 +98,11 @@
     currentView = 'dashboard';
     activeDeck = null;
     activeBook = null;
+    bgTint = 'var(--bg-primary)';
+  }
+
+  function handleSelectLibrary() {
+    currentView = 'library';
     bgTint = 'var(--bg-primary)';
   }
 
@@ -282,7 +288,8 @@
   <Dashboard 
     {chapterProgress} 
     on:selectDeck={handleStartDeck} 
-    on:selectBook={handleStartBook} 
+    on:selectBook={handleStartBook}
+    on:selectLibrary={handleSelectLibrary}
   />
 {:else if currentView === 'deck'}
   <main in:fade={{duration: 300}}>
@@ -353,5 +360,9 @@
         on:complete={handleBookComplete} 
       />
     </div>
+  </main>
+{:else if currentView === 'library'}
+  <main in:fade={{duration: 300}}>
+    <Library on:back={returnToDashboard} />
   </main>
 {/if}

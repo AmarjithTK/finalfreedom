@@ -10,7 +10,7 @@
   const dispatch = createEventDispatcher();
 
   let showThemeMenu = false;
-  const modes = ['Decks', 'EasyPeasy Book', 'Quotes'];
+  const modes = ['Decks', 'EasyPeasy Book', 'Quotes', 'Library'];
   let activeMode = (typeof window !== 'undefined' && localStorage.getItem('dashboard-mode')) || 'Decks';
 
   $: { if (typeof window !== 'undefined') localStorage.setItem('dashboard-mode', activeMode); }
@@ -392,7 +392,7 @@
       <button 
         class="filter-btn" 
         class:active={activeMode === mode}
-        on:click={() => activeMode = mode}
+        on:click={() => { if (mode === 'Library') { dispatch('selectLibrary'); } else { activeMode = mode; } }}
       >
         {mode}
       </button>
