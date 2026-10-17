@@ -366,7 +366,7 @@ class _SwipeEngineScreenState extends State<SwipeEngineScreen> with TickerProvid
                         return Transform(
                           alignment: Alignment.center,
                           transform: transform,
-                          child: Container(
+                          child: SizedBox(
                             width: screenWidth * 0.85,
                             height: 500,
                             // If animated halfway (90deg), show the back text
